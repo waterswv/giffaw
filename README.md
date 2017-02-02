@@ -44,8 +44,7 @@ Here's some steps to follow to help get you in this mindset:
 
 2. Test the API out in your browser!
 	- Go to http://api.giphy.com/v1/gifs/search?q=cats&api_key=dc6zaTOxFJmzC. This is the API request for the search term `cats`.
-	- What do you see? It's a JSON Object! But it looks like a mess!
-	- Add the JSONView plugin to Chrome. Find it [here](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc). Now refresh the API link above. Not such a mess anymore...
+	- What do you see? It's a JSON Object!
 
 3. Clone this project. We first want to write jQuery that returns and `console.log()`s that same object we saw when we opened the API in our browser. BUT HOW DO I AJAX!!??
 	- Look at this example of an `$.ajax` request:
