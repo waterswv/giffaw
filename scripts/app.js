@@ -1,13 +1,13 @@
-$(document).on("ready", function(){
+$(document).on("ready", function() {
 
-  $('.form-inline').on("submit", function (event){
+  $('.form-inline').on("submit", function(event) {
 
     event.preventDefault();
     console.log("something is happening")
-    $.ajax({
 
+    $.ajax({
       method: "get",
-      url: "https://api.giphy.com/v1/gifs/search"+ "?"+$(this).serialize(),
+      url: "https://api.giphy.com/v1/gifs/search" + "?" + $(this).serialize(),
       dataType: "json",
       success: onSuccess
 
@@ -17,8 +17,11 @@ $(document).on("ready", function(){
 
 });
 
-//var myString = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=cats&limit=25&offset=5&rating=g&lang=en&fmt=json";
+function onSuccess(dataFromAPI) {
+  $(".gif-img").remove();
 
-function onSuccess (){
-  console.log("you made the call correctly")
-}
+  dataFromAPI.data.forEach(function(giph) {
+    console.log(giph);
+    $('.gif-gallery').append($("<img class='gif-img'src=" + giph.images.fixed_height_small_still.url + ">"));
+  });
+};
